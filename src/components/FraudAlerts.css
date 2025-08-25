@@ -1,0 +1,26 @@
+.fraud-alerts-container {
+  flex: 1;
+  max-width: 400px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.fraud-alert {
+  margin-bottom: 1rem;
+}
+
+.fraud-alert strong {
+  font-size: 1rem;
+  color: #e53e3e;
+}
+
+.fraud-alert p {
+  margin: 0.3rem 0 0 0;
+  font-size: 0.9rem;
+  color: #333;
+}

@@ -1,0 +1,133 @@
+/* App.css */
+
+.app {
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.navbar h1 {
+  color: white;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* ✅ Main layout (two-column) */
+.main-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 0 2rem;
+}
+
+/* Left side (upload + results stacked) */
+.left-side {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Upload Section */
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #fff;
+  transition: 0.2s ease;
+  text-align: center;
+}
+
+.upload-box p {
+  font-size: 1.2rem;  /* 🔥 bigger text */
+  font-weight: 600;   /* 🔥 semi-bold */
+  color: #0f172a;     /* 🔥 dark readable text */
+  margin: 0;
+}
+.upload-box:hover {
+  border-color: #0f172a;
+  background: #f9fafb;
+}
+
+.file-name {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+/* Results Section */
+.result {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 15px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+/* Results Section */
+.scan-btn {
+  background-color: #0f172a;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.scan-btn:hover {
+  background-color: #1e293b;
+}
+
+.scan-results {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #f9fafb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.scan-results h3 {
+  font-size: 1.5rem; /* Bigger heading */
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.scan-results p,
+.scan-results li {
+  font-size: 1.1rem; /* Larger readable font */
+  line-height: 1.6;
+  color: #374151;
+}
+
+.scan-results ul {
+  margin-top: 8px;
+  padding-left: 22px;
+}
+
+.scan-results .file-name {
+  font-weight: 600;
+  color: #2563eb; /* Highlight uploaded file name */
+}
