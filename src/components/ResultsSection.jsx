@@ -1,46 +1,63 @@
+// ResultsSection.jsx
 import React, { useState } from "react";
-import "./App.css";
+import "./ResultsSection.css"; // ✅ Reuse the same styles
 
-function ResultsSection({ uploadedFile }) {
-  const [scanned, setScanned] = useState(false);
-  const [scanResult, setScanResult] = useState(null);
+export default function ResultsSection({ fileName }) {
+  const [scanResults, setScanResults] = useState(null);
 
+  // ✅ Fake scan logic
   const handleScan = () => {
-    // Fake scan results generator
-    const fakeScore = Math.floor(Math.random() * 101); // 0-100
+    const fakeScore = Math.floor(Math.random() * 101); // 0–100
     const fakeReasons = [
       "Suspicious permissions requested",
-      "APK is not signed properly",
-      "Detected use of obfuscated code",
-      "Unusual network activity patterns",
-      "Embedded trackers found",
+      "Unverified developer signature",
+      "APK size unusually small",
+      "Embedded URLs found",
+      "High risk of data theft",
     ];
+    const selectedReasons = fakeReasons
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 2); // pick 2 random reasons
 
-    // Randomly select 2–3 reasons
-    const selectedReasons = fakeReasons.sort(() => 0.5 - Math.random()).slice(0, 3);
+    setScanResults({ score: fakeScore, reasons: selectedReasons });
+  };
 
-    setScanResult({
-      score: fakeScore,
-      reasons: selectedReasons,
-    });
-    setScanned(true);
+  // ✅ Status label based on score
+  const getStatus = (score) => {
+    if (score <= 29) return { label: "✅ Safe", className: "status-safe" };
+    if (score <= 59) return { label: "⚠️ Suspicious", className: "status-suspicious" };
+    return { label: "❌ Malicious", className: "status-malicious" };
   };
 
   return (
-    <div className="results-section">
-      <h2>Results Section</h2>
-      {uploadedFile ? (
+    <div className="result">
+      <h2>Results</h2>
+      {fileName ? (
         <>
-          {!scanned ? (
-            <button className="scan-btn" onClick={handleScan}>
-              Scan File
-            </button>
-          ) : (
+          <p className="file-name">Selected: {fileName}</p>
+
+          {/* ✅ Show Scan button when file is uploaded */}
+          <button className="scan-btn" onClick={handleScan}>
+            Scan File
+          </button>
+
+          {/* ✅ Show fake results once scan is done */}
+          {scanResults && (
             <div className="scan-results">
-              <h3>Scan Results for {uploadedFile.name}</h3>
-              <p><strong>Reward Points:</strong> {scanResult.score} / 100</p>
+              <p>
+                <strong>Risk Score:</strong> {scanResults.score}/100
+              </p>
+
+              {/* ✅ Status Indicator */}
+              <p className={`status ${getStatus(scanResults.score).className}`}>
+                {getStatus(scanResults.score).label}
+              </p>
+
+              <p>
+                <strong>Reasons:</strong>
+              </p>
               <ul>
-                {scanResult.reasons.map((reason, index) => (
+                {scanResults.reasons.map((reason, index) => (
                   <li key={index}>{reason}</li>
                 ))}
               </ul>
@@ -53,5 +70,3 @@ function ResultsSection({ uploadedFile }) {
     </div>
   );
 }
-
-export default ResultsSection;
