@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react";
 import "./App.css";
 import FraudAlerts from "./components/FraudAlerts";
-import ResultsSection from "./components/ResultsSection"; // ✅ Import ResultsSection
+import ResultsSection from "./components/ResultsSection"; 
 
 export default function App() {
   const [fileName, setFileName] = useState(null);
