@@ -70,4 +70,3 @@ export default function ResultsSection({ fileName }) {
     </div>
   );
 }
-gi
